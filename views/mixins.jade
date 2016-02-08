@@ -1,0 +1,7 @@
+//- Navbar mixins
+mixin nav(name, id, style)
+ - var style = (typeof style === 'undefined') ? "default" : style
+ nav( role="navigation", class=["navbar", "navbar-" + style, "navbar-custom"] )
+   div.navbar-inner
+     img.icon(src='/images/icon.png')
+     a.headerTitle(href="#")= name

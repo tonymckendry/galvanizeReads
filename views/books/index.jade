@@ -1,0 +1,10 @@
+extends ../layout
+block content 
+  each book, index in books
+    .book
+      .bookImg
+        img(src=book.cover)
+      .bookInfo
+        h3 #{book.title}
+        p #{book.genre}
+        p #{book.description}
