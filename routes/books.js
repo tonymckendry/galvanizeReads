@@ -65,12 +65,41 @@ router.get('/:id/edit', function(req, res, next){
   books().where('id', req.params.id).first().then(function(result){
     knex.from('authors').innerJoin('bookauthor', 'authors.id', 'bookauthor.authorId').then(function(joined){
       authors().then(function(writers){
-        console.log(joined)
-        res.render('books/edit', {books: result, authors: joined, writers: writers})
+        var arr = [];
+        for (var i = 0; i < joined.length; i++) {
+          if (joined[i].bookId == req.params.id){
+            arr.push(joined[i].authorId)
+          }
+        }
+        console.log(arr)
+        res.render('books/edit', {books: result, authors: joined, writers: writers, arr: arr})
       })
     })
   })
 })
+
+router.post('/:id', function(req, res, next){
+  var booksObj = {}
+  booksObj.title = req.body.title
+  booksObj.genre = req.body.genre
+  booksObj.description = req.body.description
+  booksObj.cover = req.body.cover
+  var count = req.body.authCount
+  for (var i = 0; i < count; i++) {
+    if(req.body['author' + (i + 1)] !== undefined){
+      var bookAuth = {}
+      bookAuth.bookId = req.params.id
+      bookAuth.authorId = req.body['author' + (i + 1)]
+      bookAuthor().insert(bookAuth).then(function(result){
+
+      })
+    }
+  }
+  books().where('id', req.params.id).first().update(booksObj).then(function(results){
+    res.redirect('/')
+  })
+})
+
 
 
 

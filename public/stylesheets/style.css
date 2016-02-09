@@ -51,6 +51,7 @@ h3{
   margin: 0 auto;
 }
 
+
 .container{
   width: 100vw;
 }
@@ -60,9 +61,17 @@ h3{
   color: #008bce;
 }
 
+.left a{
+  color: #008bce;
+}
+
 .right{
   margin-left: 10px;
   color: #da00a9;
+}
+
+.right a{
+  color: #da00a9
 }
 
 .right p{

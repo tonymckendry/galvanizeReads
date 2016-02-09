@@ -11,25 +11,29 @@ block content
         p authors
   .pageCont
     h3 Edit Book
-    label(for='title') Title
-    br
-    input(type="text" name='title' value='#{books.title}')
-    br
-    label(for='genre') Genre
-    br
-    input(type="text" name='genre' value='#{books.genre}')
-    br
-    label(for='img') Cover Image URL
-    br
-    input(type="text" name='img' value='#{books.cover}')
-    br
-    label(for='desc') Description
-    br
-    textarea(name='desc' rows=5) #{books.description}
-    br
-    label Select Authors
-    for writer in writers
-      p.check
-        input(type='checkbox' value=writer.id name='author')
-        label #{writer.firstName} #{writer.lastName}
+    form(action='/books/#{books.id}' method='post')
+      label(for='title') Title
+      br
+      input(type="text" name='title' value='#{books.title}')
+      br
+      label(for='genre') Genre
+      br
+      input(type="text" name='genre' value='#{books.genre}')
+      br
+      label(for='img') Cover Image URL
+      br
+      input(type="text" name='cover' value='#{books.cover}')
+      br
+      label(for='desc') Description
+      br
+      textarea(name='description' rows=5) #{books.description}
+      br
+      label Select Authors
+      for writer in writers
+        p.check
+          input(type='checkbox' value=writer.id name='author' + writer.id checked=(arr.indexOf(writer.id) > -1))
+          label #{writer.firstName} #{writer.lastName}
+      br
+      input(value=writers.length hidden='true' name='authCount')
+      input.sub(type='submit')
       
