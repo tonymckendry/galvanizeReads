@@ -85,6 +85,8 @@ router.post('/:id', function(req, res, next){
   booksObj.description = req.body.description
   booksObj.cover = req.body.cover
   var count = req.body.authCount
+  bookAuthor().where('bookId', req.params.id).del().then(function(results){
+  })
   for (var i = 0; i < count; i++) {
     if(req.body['author' + (i + 1)] !== undefined){
       var bookAuth = {}
