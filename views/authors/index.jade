@@ -1,0 +1,32 @@
+extends ../layout
+block content 
+  .sideNav
+    a(href='/books')
+      .sideNavBooks
+        img.sidecon(src='/images/icon.png')
+        p books
+    a(href='/authors')
+      .sideNavAuthors.active
+        img.sidecon(src='/images/icon.png')
+        p authors
+  .pageCont
+    each author, index in authors
+      .book.author
+        a(href='/authors/' + author.id)
+          .bookImg
+            img(src=author.portrait)
+          .bookInfo
+            .buttons
+              a(href='/authors/' + author.id + '/edit')
+                img(src='/images/pencil.png')
+              a(href='/authors/' + author.id + '/delete')
+                img(src='/images/delete.png')
+            h3 #{author.firstName} #{author.lastName}
+            p #{author.biography}
+            div.authorBooks
+              p.bookTitle Books
+              div.innerBooks
+                each book in books
+                  if author.id == book.authorId
+                    p #{book.title}
+            

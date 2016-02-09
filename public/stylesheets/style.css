@@ -3,8 +3,9 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+
+h3{
+  margin-top: 0;
 }
 
 .headerTitle{
@@ -25,6 +26,7 @@ a {
   width: 75px;
   margin-top: -10px;
   margin-right: 10px;
+  margin-left: -14px;
 }
 
 .homes{
@@ -68,8 +70,10 @@ a {
 }
 
 .bookImg{
-  float: left;
+  /*float: left;*/
   margin-right: 20px;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .bookImg img{
@@ -78,4 +82,114 @@ a {
 
 .book{
   clear: both;
+  padding: 10px;
+}
+
+.book:hover{
+  border: 2px solid gray;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.bookInfo{
+/*float: right;*/
+width: 60vw;
+display: inline-block;
+vertical-align: top;
+}
+
+.innerBooks{
+  border: 1px solid black;
+  width: 61vw;
+  padding: 5px;
+}
+
+.author{
+  margin-bottom: 40px;
+}
+
+.bookTitle{
+  margin-bottom: 2px;
+  margin-left: 5px;
+}
+
+.sideNav{
+  width: 75px;
+  float: left;
+  border: 3px solid black;
+}
+
+.sideNav div{
+  position: relative;
+}
+
+.sideNavBooks{
+  height: 37vh;
+  border-bottom: 3px solid black;
+}
+
+.sideNavAuthors{
+  height: 37vh;
+}
+
+.pageCont{
+  float: right;
+  width: 82vw;
+}
+
+.active{
+  background-color: rgba(0,0,255,.3);
+}
+
+.sideNav p{
+  transform: rotate(-90deg);
+  position: absolute;
+  bottom: 20%;
+  left: -10%;
+  font-size: 2em;
+  color: black;
+}
+
+.sideNavAuthors p{
+  left: -25%;
+  bottom: 25%;
+}
+
+.sidecon{
+  margin: 0 auto;
+  width: 60px;
+  position: absolute;
+  top: 5px;
+  left: 7%;
+}
+
+.buttons img{
+  width: 30px;
+  margin: 5px;
+  margin-top: 0;
+}
+
+.buttons{
+  position: absolute;
+  right: 12%;
+}
+
+.pageCont input{
+  width: 80%;
+}
+
+.pageCont textarea{
+  width: 80%;
+}
+
+label{
+  margin-top: 10px;
+}
+
+.check{
+  margin: 0 auto;
+  /*text-align: center;*/
+}
+
+.check input{
+  width: 10%;
 }

@@ -1,11 +1,11 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('bookAuthor', function(table){
-    table.string('bookId');
-    table.string('authorId');
+  return knex.schema.createTable('bookauthor', function(table){
+    table.integer('bookId');
+    table.integer('authorId');
   })
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('bookAuthor')
+  return knex.schema.dropTable('bookauthor')
 };

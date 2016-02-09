@@ -1,0 +1,34 @@
+extends ../layout
+block content
+  .sideNav
+    a(href='/books')
+      .sideNavBooks
+        img.sidecon(src='/images/icon.png')
+        p books
+    a(href='/authors')
+      .sideNavAuthors.active
+        img.sidecon(src='/images/icon.png')
+        p authors
+  .pageCont
+    h3 Edit Author
+    label(for='firstname') First Name
+    br
+    input(type="text" name='fName' value='#{authors.firstName}')
+    br
+    label(for='lastName') Last Name
+    br
+    input(type="text" name='lastName' value='#{authors.lastName}')
+    br
+    label(for='img') Portrait URL
+    br
+    input(type="text" name='img' value='#{authors.portrait}')
+    br
+    label(for='desc') Description
+    br
+    textarea(name='desc' rows=5) #{authors.biography}
+    br
+    label Select Books
+    for novel in novels
+      p.check
+        input(type='checkbox' value=novel.id name='novel')
+        label #{novel.title}
