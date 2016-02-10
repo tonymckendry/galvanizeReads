@@ -10,6 +10,9 @@ block content
         img.sidecon(src='/images/icon.png')
         p authors
   .pageCont
+    .add
+      a(href='/authors/new')
+        h3 + Add a new Author
     each author, index in authors
       .book.author
         a(href='/authors/' + author.id)
