@@ -25,6 +25,7 @@ block content
             p #{book.genre}
               each author in authors
                 if book.id == author.bookId
-                  p #{author.firstName} #{author.lastName}
+                  a(href='/authors/#{author.id}')
+                    p #{author.firstName} #{author.lastName}
             p #{book.description}
         

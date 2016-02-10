@@ -1,0 +1,38 @@
+extends ../layout
+block content
+  .sideNav
+    a(href='/books')
+      .sideNavBooks
+        img.sidecon(src='/images/icon.png')
+        p books
+    a(href='/authors')
+      .sideNavAuthors.active
+        img.sidecon(src='/images/icon.png')
+        p authors
+  .pageCont
+    h3 Edit Author
+    form(action='/authors' method='post')
+      label(for='firstname') First Name
+      br
+      input(type="text" name='firstName' placeholder='Steve')
+      br
+      label(for='lastName') Last Name
+      br
+      input(type="text" name='lastName' placeholder='Stevens')
+      br
+      label(for='portrait') Portrait URL
+      br
+      input(type="text" name='portrait' placeholder='www.PortaitImage.com/portait.jpg')
+      br
+      label(for='biography') Biography
+      br
+      textarea(name='biography' rows=5 placeholder='Write some stuff here') 
+      br
+      label Select Books
+      for book, index in books
+        p.check
+          input(type='checkbox' value=book.id name='novel' + index)
+          label #{book.title}
+      br
+      input(value=books.length hidden='true' name='bookCount')
+      input.sub(type='submit')

@@ -68,6 +68,7 @@ h3{
 .right{
   margin-left: 10px;
   color: #da00a9;
+  z-index: 1;
 }
 
 .right a{
@@ -201,4 +202,31 @@ label{
 
 .check input{
   width: 10%;
+}
+
+.adminStuff{
+  position: absolute;
+  right: 25px;
+  top: 10px;
+}
+
+.adminStuff img{
+  height: 50px;
+}
+
+.adminMessage{
+position: absolute;
+left: 20px;
+top: 0;
+z-index: 2;
+}
+
+.adiv{
+  display: inline-block;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.adiv p{
+  margin-top: 0;
 }

@@ -5,3 +5,12 @@ mixin nav(name, id, style)
    div.navbar-inner
      img.icon(src='/images/icon.png')
      a.headerTitle(href="/")= name
+     .adminStuff
+       .adiv
+         a(href='/admin/set')
+           img(src='/images/super.png')
+           p Log in as Admin
+        .adiv
+         a(href='/admin/remove')
+           img(src='/images/logout.png')
+           p Log out of admin

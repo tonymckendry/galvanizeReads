@@ -28,5 +28,6 @@ block content
               div.innerBooks
                 each book in books
                   if author.id == book.authorId
-                    p #{book.title}
+                    a(href='/books/#{book.id}')
+                      p #{book.title}
             

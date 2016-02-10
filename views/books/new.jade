@@ -11,25 +11,29 @@ block content
         p authors
   .pageCont
     h3 Edit Book
-    label(for='title') Title
-    br
-    input(type="text" name='title' placeholder='The Necronomicon')
-    br
-    label(for='genre') Genre
-    br
-    input(type="text" name='genre' placeholder='Horror')
-    br
-    label(for='img') Cover Image URL
-    br
-    input(type="text" name='img' placeholder='www.NotAnImage.com')
-    br
-    label(for='desc') Description
-    br
-    textarea(name='desc' rows=5 placeholder='Write some stuff...') 
-    br
-    label Select Authors
-    for author in authors
-      p.check
-        input(type='checkbox' value=author.id name='author')
-        label #{author.firstName} #{author.lastName}
-      
+    form(action='/books' method='post')
+      label(for='title') Title
+      br
+      input(type="text" name='title' placeholder='The Necronomicon')
+      br
+      label(for='genre') Genre
+      br
+      input(type="text" name='genre' placeholder='Horror')
+      br
+      label(for='img') Cover Image URL
+      br
+      input(type="text" name='cover' placeholder='www.NotAnImage.com')
+      br
+      label(for='desc') Description
+      br
+      textarea(name='description' rows=5 placeholder='Write some stuff...') 
+      br
+      label Select Authors
+      for author in authors
+        p.check
+          input(type='checkbox' value=author.id name='author' + author.id)
+          label #{author.firstName} #{author.lastName}
+      br
+      input(value=authors.length hidden='true' name='authCount')
+      input.sub(type='submit')
+        

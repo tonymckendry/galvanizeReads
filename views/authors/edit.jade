@@ -11,24 +11,28 @@ block content
         p authors
   .pageCont
     h3 Edit Author
-    label(for='firstname') First Name
-    br
-    input(type="text" name='fName' value='#{authors.firstName}')
-    br
-    label(for='lastName') Last Name
-    br
-    input(type="text" name='lastName' value='#{authors.lastName}')
-    br
-    label(for='img') Portrait URL
-    br
-    input(type="text" name='img' value='#{authors.portrait}')
-    br
-    label(for='desc') Description
-    br
-    textarea(name='desc' rows=5) #{authors.biography}
-    br
-    label Select Books
-    for novel in novels
-      p.check
-        input(type='checkbox' value=novel.id name='novel')
-        label #{novel.title}
+    form(action='/authors/#{authors.id}' method='post')
+      label(for='firstname') First Name
+      br
+      input(type="text" name='firstName' value='#{authors.firstName}')
+      br
+      label(for='lastName') Last Name
+      br
+      input(type="text" name='lastName' value='#{authors.lastName}')
+      br
+      label(for='portrait') Portrait URL
+      br
+      input(type="text" name='portrait' value='#{authors.portrait}')
+      br
+      label(for='biography') Biography
+      br
+      textarea(name='biography' rows=5) #{authors.biography}
+      br
+      label Select Books
+      for novel, index in novels
+        p.check
+          input(type='checkbox' value=novel.id name='novel' + index checked=(arr.indexOf(novel.id) > -1))
+          label #{novel.title}
+      br
+      input(value=books.length hidden='true' name='bookCount')
+      input.sub(type='submit')
